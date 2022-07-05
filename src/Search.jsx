@@ -17,7 +17,7 @@ const Search = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className=" bg-[#1F2A48] p-2 font flex justify-between gap-1 rounded-lg mb-4 font-spaceMono"
+      className=" bg-[#1F2A48] p-2 text-sm flex justify-between gap-1 rounded-lg mb-4 font-spaceMono"
     >
       <div className="flex">
         <img src="image/icon-search.svg" alt="search" />
