@@ -2,16 +2,41 @@ import "./App.css";
 import { MdLocationPin, MdOutlineEmail } from "react-icons/md";
 import { TbLink } from "react-icons/tb";
 import { FaTwitter } from "react-icons/fa";
-
 import Search from "./Search";
 import useUsers from "./hooks/useUsers";
 import imageDefault from "/image/Octocat.jpg";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const { user, searchUser } = useUsers();
-  console.log(user);
+  const formatDate = (user) => {
+    if (user.created_at == undefined) {
+      return;
+    } else {
+      const months = {
+        "01": "Jan",
+        "02": "Feb",
+        "03": "Mar",
+        "04": "Apr",
+        "05": "May",
+        "06": "Jun",
+        "07": "Jul",
+        "08": "Aug",
+        "09": "Sep",
+        10: "Oct",
+        11: "Nov",
+        12: "Dec",
+      };
+      const dateCut = user.created_at.slice(0, 10).split("-");
+      console.log(dateCut);
+      const changedDate = ` Joined ${dateCut[2]} ${months[dateCut[1]]} ${
+        dateCut[0]
+      }`;
+      return changedDate;
+    }
+  };
 
+  /* console.log(months[dateCut[1]]); */
   useEffect(() => {
     searchUser("octocat");
   }, []);
@@ -36,9 +61,7 @@ function App() {
                 @{user.login ? user.login : "octocat"}
               </p>
             </div>
-            <p className="text-sm">
-              {user.created_at ? user.created_at : "Joined 25 Jan 2011"}
-            </p>
+            <p className="text-sm">{formatDate(user)}</p>
           </div>
           <div className=" col-span-5 row-span-3 lg:col-span-4 flex flex-col justify-between px-4">
             <p className="pt-2 lg:text-sm">
