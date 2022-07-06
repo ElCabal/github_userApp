@@ -40,8 +40,11 @@ function App() {
     searchUser("octocat");
   }, []);
   return (
-    <section className="min-h-screen bg-[#0D1117] flex flex-col justify-center items-center  w-full">
+    <section className="min-h-screen bg-[#0D1117] flex flex-col justify-between items-center w-full pt-28 pl-4 pr-4">
       <div className="max-w-2xl">
+        <p className="text-white font-bold text-3xl pb-10 text-center">
+          Github User Search
+        </p>
         <Search />
         <article className="bg-[#161B22] rounded-lg grid overflow-hidden grid-cols-5 grid-rows-4 text-[0.8rem] font-spaceMono text-white py-6 px-4 max-w-2xl">
           <div className=" flex justify-center row-span-1 col-span-2 lg:col-span-1 lg:row-span-4">
@@ -86,7 +89,7 @@ function App() {
                 </span>
               </div>
             </article>
-            <article className="flex gap-2 flex-col lg:text-sm">
+            <article className="grid md:grid-cols-2 gap-2 lg:text-sm">
               <div className="flex gap-2 items-center">
                 {user.location ? (
                   <>
@@ -159,6 +162,16 @@ function App() {
           </div>
         </article>
       </div>
+      <footer className="text-white p-6 tracking-wider">
+        created by {""}
+        <a
+          className="text-[#3FB950] font-bold tracking-wider underline"
+          target="_blank"
+          href="https://github.com/ElCabal"
+        >
+          ElCabal
+        </a>{" "}
+      </footer>
     </section>
   );
 }
