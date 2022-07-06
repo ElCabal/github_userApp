@@ -28,6 +28,7 @@ const Search = () => {
           value={search}
           type="text"
           placeholder="Search Github username"
+          autoComplete="off"
         />
       </div>
       <button

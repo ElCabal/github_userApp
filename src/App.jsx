@@ -5,7 +5,7 @@ import { FaTwitter } from "react-icons/fa";
 import Search from "./Search";
 import useUsers from "./hooks/useUsers";
 import imageDefault from "/image/Octocat.jpg";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 function App() {
   const { user, searchUser } = useUsers();
@@ -28,7 +28,6 @@ function App() {
         12: "Dec",
       };
       const dateCut = user.created_at.slice(0, 10).split("-");
-      console.log(dateCut);
       const changedDate = ` Joined ${dateCut[2]} ${months[dateCut[1]]} ${
         dateCut[0]
       }`;
